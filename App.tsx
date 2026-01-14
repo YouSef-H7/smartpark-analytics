@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import Banner from './components/Banner';
 import Overview from './pages/Overview';
@@ -82,7 +82,7 @@ const App: React.FC = () => {
   }, [updateData, updateHealth]);
 
   return (
-    <HashRouter>
+    <BrowserRouter basename="/analytics">
       <div className="min-h-screen flex flex-col bg-slate-950 text-slate-50 selection:bg-indigo-500/30">
         <Banner message={!API_BASE ? "Backend not configured" : error} type={!API_BASE ? "warning" : "error"} />
         <Header status={health?.status || 'OFFLINE'} />
@@ -103,7 +103,7 @@ const App: React.FC = () => {
           </div>
         </footer>
       </div>
-    </HashRouter>
+    </BrowserRouter>
   );
 };
 
