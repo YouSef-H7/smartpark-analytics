@@ -1,0 +1,10 @@
+
+version: '3.8'
+services:
+  smartpark-analytics:
+    build: .
+    ports:
+      - "80:80"
+    restart: always
+    environment:
+      - VITE_BACKEND_URL=http://BACKEND_LB_IP_OR_DNS
